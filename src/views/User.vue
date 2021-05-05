@@ -1,14 +1,19 @@
 <template>
   <div class="user"> 
-      <h1>userComponent</h1>
+    <user-component/>
   </div>
 </template>
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
+  import UserComponent from "@/components/users.vue";
 
-  @Component({})
-  export default class UserComponent extends Vue {
+  @Component({
+    components: {
+      UserComponent
+    }
+  })
+  export default class User extends Vue {
 
     mounted (){
       console.log('hello from app');

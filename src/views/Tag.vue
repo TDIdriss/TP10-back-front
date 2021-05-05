@@ -13,5 +13,5 @@ import tags  from "@/components/tags.vue";
     tags
   },
 })
-export default class tag extends Vue {}
+export default class Tag extends Vue {}
 </script>

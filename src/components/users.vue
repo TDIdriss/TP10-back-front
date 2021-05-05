@@ -1,17 +1,44 @@
 <template>
   <div class="user"> 
       <h1>userComponent</h1>
+
+       <div class="row">
+      <div class="col-12">
+        <div class="card">
       <div> <user-component-component v-for="item in listuser" :key="item" :user="item"/> </div>
+      <br>
       <button @click="openmodal">Ajouter une user</button>
-      <div>
-        <label for="">nom</label>
-        <input type="text" v-model="newuser.libelle">
+      
+      <form v-if="addmodal">
+            <div class="row">
+              <div class="col">
+                <label for="" class="form-label">Nom</label>
+                <input
+                  type="text"
+                  v-model="newuser.nom"
+                  class="form-control"
+                  id=""
+                />
+              </div>
+              <div class="col">
+                <label for="" class="form-label">prenom</label>
+                <input
+                  type="text"
+                  v-model="newuser.prenom"
+                  class="form-control"
+                  id=""
+                />
+              </div>
+              <div class="col"></div>
+              <button @click="adduser" type="submit" class="btn btn-primary">
+                Ajouter
+              </button>
+            </div>
+          </form>
 
-        <label for="">prenom/label>
-        <input type="text" v-model="newuser.date">
-
-      <button @click="adduser"> Ajouter</button>
       </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -97,6 +124,7 @@ newuser = {}
       console.log('hello from app');
       await this.finduser()
       console.log("ici");
+      console.log(this.$route.path);
       
     }
     
@@ -105,3 +133,10 @@ newuser = {}
 </script>
 
 
+
+<style scoped>
+.card {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+</style>
